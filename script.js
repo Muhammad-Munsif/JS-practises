@@ -58,3 +58,67 @@ function runExample6() {
 
   updateOutput("output6", `Spread: [${nums2}]\nRest: ${sum(1, 2, 3, 4)}`);
 }
+// Example 7: Object Literal Enhancements
+function runExample7() {
+  const name = "Alex";
+  const job = "Developer";
+  const person = {
+    name,
+    job,
+    sayHi() {
+      return `Hi, I'm ${this.name} and I'm a ${this.job}`;
+    },
+  };
+  updateOutput("output7", person.sayHi());
+}
+
+// Example 8: Promises
+function runExample8() {
+  const fetchData = () =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve("Data loaded"), 1000);
+    });
+
+  updateOutput("output8", "Loading...");
+
+  fetchData().then((result) => {
+    updateOutput("output8", result);
+  });
+}
+
+// Example 9: Async/Await
+async function runExample9() {
+  updateOutput("output9", "Loading...");
+
+  const fetchData = () =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve("Data loaded"), 1000);
+    });
+
+  const result = await fetchData();
+  updateOutput("output9", result);
+}
+
+// Example 10: Classes
+function runExample10() {
+  class Animal {
+    constructor(type) {
+      this.type = type;
+    }
+    speak() {
+      return `I am a ${this.type}`;
+    }
+  }
+
+  const dog = new Animal("Dog");
+  updateOutput("output10", dog.speak());
+}
+
+// Example 12: Optional Chaining
+function runExample12() {
+  const profile = { user: { name: "Alex" } };
+  updateOutput(
+    "output12",
+    `User name: ${profile.user?.name}\nContact email: ${profile.contact?.email}`
+  );
+}
