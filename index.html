@@ -1,402 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript ES6+ Features Practice</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>JavaScript ES6+ Features</h1>
-            <p class="subtitle">Modern JavaScript Concepts with Interactive Examples</p>
-        </header>
-        
-        <div class="concepts-grid">
-            <!-- Concept 1: let and const -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> let and const</h2>
-                <div class="code-block">
-let name = "Alex";
-const age = 25;
-// age = 30; // ❌ Error: const can't be reassigned
-                </div>
-                <div class="output" id="output1">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample1()">Run Example</button>
-                <div class="explanation">
-                    <strong>let</strong> allows variable reassignment, while <strong>const</strong> creates a constant that cannot be reassigned.
-                </div>
-            </div>
-            
-            <!-- Concept 2: Arrow Functions -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Arrow Functions</h2>
-                <div class="code-block">
-const greet = name => `Hello, ${name}`;
-console.log(greet("Alex"));
-                </div>
-                <div class="output" id="output2">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample2()">Run Example</button>
-                <div class="explanation">
-                    Arrow functions provide a concise syntax and do not have their own <strong>this</strong> context.
-                </div>
-            </div>
-            
-            <!-- Concept 3: Template Literals -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Template Literals</h2>
-                <div class="code-block">
-const name = "Alex";
-const age = 25;
-const msg = `Hi ${name}, you are ${age} years old.`;
-console.log(msg);
-                </div>
-                <div class="output" id="output3">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample3()">Run Example</button>
-                <div class="explanation">
-                    Template literals allow embedded expressions and multi-line strings using backticks (`).
-                </div>
-            </div>
-            
-            <!-- Concept 4: Default Parameters -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Default Parameters</h2>
-                <div class="code-block">
-function welcome(user = "Guest") {
-  return `Welcome, ${user}`;
-}
-console.log(welcome());
-console.log(welcome("Alex"));
-                </div>
-                <div class="output" id="output4">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample4()">Run Example</button>
-                <div class="explanation">
-                    Default parameters allow function parameters to have default values if no argument is provided.
-                </div>
-            </div>
-            
-            <!-- Concept 5: Destructuring -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Destructuring</h2>
-                <div class="code-block">
-// Object Destructuring
-const user = { name: "Alex", age: 25 };
-const { name: username, age: userAge } = user;
+      <header>
+        <h1>JavaScript ES6+ Features</h1>
+        <p class="subtitle">
+          Modern JavaScript Concepts with Interactive Examples
+        </p>
+      </header>
 
-// Array Destructuring
-const arr = [10, 20, 30];
-const [first, , third] = arr;
-
-console.log(username, userAge);
-console.log(first, third);
-                </div>
-                <div class="output" id="output5">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample5()">Run Example</button>
-                <div class="explanation">
-                    Destructuring allows extracting values from objects and arrays into distinct variables.
-                </div>
-            </div>
-            
-            <!-- Concept 6: Spread and Rest -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Spread and Rest</h2>
-                <div class="code-block">
-// Spread operator
-const nums1 = [1, 2];
-const nums2 = [...nums1, 3, 4];
-
-// Rest parameters
-function sum(...numbers) {
-  return numbers.reduce((acc, n) => acc + n, 0);
-}
-
-console.log(nums2);
-console.log(sum(1, 2, 3, 4));
-                </div>
-                <div class="output" id="output6">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample6()">Run Example</button>
-                <div class="explanation">
-                    The <strong>spread</strong> operator expands elements, while <strong>rest</strong> parameters collect multiple elements into an array.
-                </div>
-            </div>
-            
-            <!-- Concept 7: Object Literal Enhancements -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Object Literal Enhancements</h2>
-                <div class="code-block">
-const name = "Alex";
-const job = "Developer";
-const person = {
-  name,
-  job,
-  sayHi() {
-    return `Hi, I'm ${this.name} and I'm a ${this.job}`;
-  }
-};
-console.log(person.sayHi());
-                </div>
-                <div class="output" id="output7">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample7()">Run Example</button>
-                <div class="explanation">
-                    Object literal enhancements provide a shorter syntax for defining properties and methods in objects.
-                </div>
-            </div>
-            
-            <!-- Concept 8: Promises -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Promises</h2>
-                <div class="code-block">
-const fetchData = () => new Promise((resolve) => {
-  setTimeout(() => resolve("Data loaded"), 1000);
-});
-
-fetchData().then(result => {
-  console.log(result);
-});
-                </div>
-                <div class="output" id="output8">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample8()">Run Example</button>
-                <div class="explanation">
-                    Promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value.
-                </div>
-            </div>
-            
-            <!-- Concept 9: Async/Await -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Async/Await</h2>
-                <div class="code-block">
-async function asyncExample() {
-  const fetchData = () => new Promise((resolve) => {
-    setTimeout(() => resolve("Data loaded"), 1000);
-  });
-  
-  const result = await fetchData();
-  console.log(result);
-}
-asyncExample();
-                </div>
-                <div class="output" id="output9">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample9()">Run Example</button>
-                <div class="explanation">
-                    Async/await provides a cleaner way to work with asynchronous code, making it look synchronous.
-                </div>
-            </div>
-            
-            <!-- Concept 10: Classes -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Classes</h2>
-                <div class="code-block">
-class Animal {
-  constructor(type) {
-    this.type = type;
-  }
-  speak() {
-    return `I am a ${this.type}`;
-  }
-}
-
-const dog = new Animal("Dog");
-console.log(dog.speak());
-                </div>
-                <div class="output" id="output10">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample10()">Run Example</button>
-                <div class="explanation">
-                    Classes provide a template for creating objects with shared properties and methods.
-                </div>
-            </div>
-            
-            <!-- Concept 12: Optional Chaining -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Optional Chaining</h2>
-                <div class="code-block">
-const profile = { user: { name: "Alex" } };
-console.log(profile.user?.name); // Alex
-console.log(profile.contact?.email); // undefined
-                </div>
-                <div class="output" id="output12">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample12()">Run Example</button>
-                <div class="explanation">
-                    Optional chaining (?.) allows reading properties deep in a chain without having to check if each reference is valid.
-                </div>
-            </div>
-            
-            <!-- Concept 13: Nullish Coalescing -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Nullish Coalescing</h2>
-                <div class="code-block">
-let usernameInput = null;
-console.log(usernameInput ?? "DefaultUser");
-
-let emptyString = "";
-console.log(emptyString ?? "DefaultString");
-                </div>
-                <div class="output" id="output13">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample13()">Run Example</button>
-                <div class="explanation">
-                    The nullish coalescing operator (??) returns the right-hand operand when the left-hand operand is null or undefined.
-                </div>
-            </div>
-            
-            <!-- Concept 14: for...of Loop -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> for...of Loop</h2>
-                <div class="code-block">
-const scores = [90, 80, 100];
-let output = "";
-for (let score of scores) {
-  output += score + " ";
-}
-console.log(output);
-                </div>
-                <div class="output" id="output14">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample14()">Run Example</button>
-                <div class="explanation">
-                    The for...of loop creates a loop iterating over iterable objects (arrays, strings, etc.).
-                </div>
-            </div>
-            
-            <!-- Concept 15: Map and Set -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Map and Set</h2>
-                <div class="code-block">
-// Map
-const map = new Map();
-map.set("a", 1);
-map.set("b", 2);
-
-// Set
-const set = new Set([1, 2, 2, 3]);
-
-console.log("Map:", [...map]);
-console.log("Set:", [...set]);
-                </div>
-                <div class="output" id="output15">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample15()">Run Example</button>
-                <div class="explanation">
-                    <strong>Map</strong> is a collection of keyed values, <strong>Set</strong> is a collection of unique values.
-                </div>
-            </div>
-            
-            <!-- Concept 16: Array Methods -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Array Methods</h2>
-                <div class="code-block">
-const arr = [1, 2, 3, 4, 5];
-console.log("Includes 2:", arr.includes(2));
-console.log("Find > 3:", arr.find(n => n > 3));
-console.log("FindIndex of 3:", arr.findIndex(n => n === 3));
-                </div>
-                <div class="output" id="output16">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample16()">Run Example</button>
-                <div class="explanation">
-                    Modern array methods like includes(), find(), and findIndex() provide powerful ways to work with arrays.
-                </div>
-            </div>
-            
-            <!-- Concept 17: Object.entries/values/fromEntries -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Object Methods</h2>
-                <div class="code-block">
-const info = { a: 1, b: 2 };
-console.log("Entries:", Object.entries(info));
-console.log("Values:", Object.values(info));
-console.log("FromEntries:", 
-  Object.fromEntries([["x", 10], ["y", 20]]));
-                </div>
-                <div class="output" id="output17">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample17()">Run Example</button>
-                <div class="explanation">
-                    Object.entries(), Object.values(), and Object.fromEntries() provide ways to convert between objects and arrays.
-                </div>
-            </div>
-            
-            <!-- Concept 18: Logical Assignment Operators -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Logical Assignment</h2>
-                <div class="code-block">
-let userName = null;
-userName ||= "Guest";
-console.log("Username:", userName);
-
-let count = 10;
-count &&= 20;
-console.log("Count:", count);
-                </div>
-                <div class="output" id="output18">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample18()">Run Example</button>
-                <div class="explanation">
-                    Logical assignment operators (||=, &&=, ??=) combine logical operations with assignment.
-                </div>
-            </div>
-            
-            <!-- Concept 19: Private Class Fields -->
-            <div class="concept-card">
-                <h2 class="concept-title"><i>✓</i> Private Class Fields</h2>
-                <div class="code-block">
-class Secret {
-  #code = 123;
-  getCode() {
-    return this.#code;
-  }
-}
-const s = new Secret();
-console.log("Secret code:", s.getCode());
-                </div>
-                <div class="output" id="output19">
-                    // Output will appear here
-                </div>
-                <button class="action-btn" onclick="runExample19()">Run Example</button>
-                <div class="explanation">
-                    Private class fields (prefixed with #) are accessible only within the class they are declared in.
-                </div>
-            </div>
+      <div class="concepts-grid">
+        <!-- Concept 1: let and const -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> let and const</h2>
+          <div class="code-block">
+            let name = "Alex"; const age = 25; // age = 30; // ❌ Error: const
+            can't be reassigned
+          </div>
+          <div class="output" id="output1">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample1()">
+            Run Example
+          </button>
+          <div class="explanation">
+            <strong>let</strong> allows variable reassignment, while
+            <strong>const</strong> creates a constant that cannot be reassigned.
+          </div>
         </div>
-        
-        <footer>
-            <p>JavaScript ES6+ Features Practice | Created for learning purposes</p>
-        </footer>
+
+        <!-- Concept 2: Arrow Functions -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Arrow Functions</h2>
+          <div class="code-block">
+            const greet = name => `Hello, ${name}`; console.log(greet("Alex"));
+          </div>
+          <div class="output" id="output2">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample2()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Arrow functions provide a concise syntax and do not have their own
+            <strong>this</strong> context.
+          </div>
+        </div>
+
+        <!-- Concept 3: Template Literals -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Template Literals</h2>
+          <div class="code-block">
+            const name = "Alex"; const age = 25; const msg = `Hi ${name}, you
+            are ${age} years old.`; console.log(msg);
+          </div>
+          <div class="output" id="output3">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample3()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Template literals allow embedded expressions and multi-line strings
+            using backticks (`).
+          </div>
+        </div>
+
+        <!-- Concept 4: Default Parameters -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Default Parameters</h2>
+          <div class="code-block">
+            function welcome(user = "Guest") { return `Welcome, ${user}`; }
+            console.log(welcome()); console.log(welcome("Alex"));
+          </div>
+          <div class="output" id="output4">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample4()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Default parameters allow function parameters to have default values
+            if no argument is provided.
+          </div>
+        </div>
+
+        <!-- Concept 5: Destructuring -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Destructuring</h2>
+          <div class="code-block">
+            // Object Destructuring const user = { name: "Alex", age: 25 };
+            const { name: username, age: userAge } = user; // Array
+            Destructuring const arr = [10, 20, 30]; const [first, , third] =
+            arr; console.log(username, userAge); console.log(first, third);
+          </div>
+          <div class="output" id="output5">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample5()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Destructuring allows extracting values from objects and arrays into
+            distinct variables.
+          </div>
+        </div>
+
+        <!-- Concept 6: Spread and Rest -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Spread and Rest</h2>
+          <div class="code-block">
+            // Spread operator const nums1 = [1, 2]; const nums2 = [...nums1, 3,
+            4]; // Rest parameters function sum(...numbers) { return
+            numbers.reduce((acc, n) => acc + n, 0); } console.log(nums2);
+            console.log(sum(1, 2, 3, 4));
+          </div>
+          <div class="output" id="output6">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample6()">
+            Run Example
+          </button>
+          <div class="explanation">
+            The <strong>spread</strong> operator expands elements, while
+            <strong>rest</strong> parameters collect multiple elements into an
+            array.
+          </div>
+        </div>
+
+        <!-- Concept 7: Object Literal Enhancements -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Object Literal Enhancements</h2>
+          <div class="code-block">
+            const name = "Alex"; const job = "Developer"; const person = { name,
+            job, sayHi() { return `Hi, I'm ${this.name} and I'm a ${this.job}`;
+            } }; console.log(person.sayHi());
+          </div>
+          <div class="output" id="output7">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample7()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Object literal enhancements provide a shorter syntax for defining
+            properties and methods in objects.
+          </div>
+        </div>
+
+        <!-- Concept 8: Promises -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Promises</h2>
+          <div class="code-block">
+            const fetchData = () => new Promise((resolve) => { setTimeout(() =>
+            resolve("Data loaded"), 1000); }); fetchData().then(result => {
+            console.log(result); });
+          </div>
+          <div class="output" id="output8">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample8()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Promises represent the eventual completion (or failure) of an
+            asynchronous operation and its resulting value.
+          </div>
+        </div>
+
+        <!-- Concept 9: Async/Await -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Async/Await</h2>
+          <div class="code-block">
+            async function asyncExample() { const fetchData = () => new
+            Promise((resolve) => { setTimeout(() => resolve("Data loaded"),
+            1000); }); const result = await fetchData(); console.log(result); }
+            asyncExample();
+          </div>
+          <div class="output" id="output9">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample9()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Async/await provides a cleaner way to work with asynchronous code,
+            making it look synchronous.
+          </div>
+        </div>
+
+        <!-- Concept 10: Classes -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Classes</h2>
+          <div class="code-block">
+            class Animal { constructor(type) { this.type = type; } speak() {
+            return `I am a ${this.type}`; } } const dog = new Animal("Dog");
+            console.log(dog.speak());
+          </div>
+          <div class="output" id="output10">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample10()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Classes provide a template for creating objects with shared
+            properties and methods.
+          </div>
+        </div>
+
+        <!-- Concept 12: Optional Chaining -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Optional Chaining</h2>
+          <div class="code-block">
+            const profile = { user: { name: "Alex" } };
+            console.log(profile.user?.name); // Alex
+            console.log(profile.contact?.email); // undefined
+          </div>
+          <div class="output" id="output12">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample12()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Optional chaining (?.) allows reading properties deep in a chain
+            without having to check if each reference is valid.
+          </div>
+        </div>
+
+        <!-- Concept 13: Nullish Coalescing -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Nullish Coalescing</h2>
+          <div class="code-block">
+            let usernameInput = null; console.log(usernameInput ??
+            "DefaultUser"); let emptyString = ""; console.log(emptyString ??
+            "DefaultString");
+          </div>
+          <div class="output" id="output13">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample13()">
+            Run Example
+          </button>
+          <div class="explanation">
+            The nullish coalescing operator (??) returns the right-hand operand
+            when the left-hand operand is null or undefined.
+          </div>
+        </div>
+
+        <!-- Concept 14: for...of Loop -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> for...of Loop</h2>
+          <div class="code-block">
+            const scores = [90, 80, 100]; let output = ""; for (let score of
+            scores) { output += score + " "; } console.log(output);
+          </div>
+          <div class="output" id="output14">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample14()">
+            Run Example
+          </button>
+          <div class="explanation">
+            The for...of loop creates a loop iterating over iterable objects
+            (arrays, strings, etc.).
+          </div>
+        </div>
+
+        <!-- Concept 15: Map and Set -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Map and Set</h2>
+          <div class="code-block">
+            // Map const map = new Map(); map.set("a", 1); map.set("b", 2); //
+            Set const set = new Set([1, 2, 2, 3]); console.log("Map:",
+            [...map]); console.log("Set:", [...set]);
+          </div>
+          <div class="output" id="output15">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample15()">
+            Run Example
+          </button>
+          <div class="explanation">
+            <strong>Map</strong> is a collection of keyed values,
+            <strong>Set</strong> is a collection of unique values.
+          </div>
+        </div>
+
+        <!-- Concept 16: Array Methods -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Array Methods</h2>
+          <div class="code-block">
+            const arr = [1, 2, 3, 4, 5]; console.log("Includes 2:",
+            arr.includes(2)); console.log("Find > 3:", arr.find(n => n > 3));
+            console.log("FindIndex of 3:", arr.findIndex(n => n === 3));
+          </div>
+          <div class="output" id="output16">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample16()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Modern array methods like includes(), find(), and findIndex()
+            provide powerful ways to work with arrays.
+          </div>
+        </div>
+
+        <!-- Concept 17: Object.entries/values/fromEntries -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Object Methods</h2>
+          <div class="code-block">
+            const info = { a: 1, b: 2 }; console.log("Entries:",
+            Object.entries(info)); console.log("Values:", Object.values(info));
+            console.log("FromEntries:", Object.fromEntries([["x", 10], ["y",
+            20]]));
+          </div>
+          <div class="output" id="output17">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample17()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Object.entries(), Object.values(), and Object.fromEntries() provide
+            ways to convert between objects and arrays.
+          </div>
+        </div>
+
+        <!-- Concept 18: Logical Assignment Operators -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Logical Assignment</h2>
+          <div class="code-block">
+            let userName = null; userName ||= "Guest"; console.log("Username:",
+            userName); let count = 10; count &&= 20; console.log("Count:",
+            count);
+          </div>
+          <div class="output" id="output18">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample18()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Logical assignment operators (||=, &&=, ??=) combine logical
+            operations with assignment.
+          </div>
+        </div>
+
+        <!-- Concept 19: Private Class Fields -->
+        <div class="concept-card">
+          <h2 class="concept-title"><i>✓</i> Private Class Fields</h2>
+          <div class="code-block">
+            class Secret { #code = 123; getCode() { return this.#code; } } const
+            s = new Secret(); console.log("Secret code:", s.getCode());
+          </div>
+          <div class="output" id="output19">// Output will appear here</div>
+          <button class="action-btn" onclick="runExample19()">
+            Run Example
+          </button>
+          <div class="explanation">
+            Private class fields (prefixed with #) are accessible only within
+            the class they are declared in.
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>JavaScript ES6+ Features Practice | Created for learning purposes</p>
+      </footer>
     </div>
 
-    <script>
-      
-        
-   
-      
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
