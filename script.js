@@ -122,3 +122,90 @@ function runExample12() {
     `User name: ${profile.user?.name}\nContact email: ${profile.contact?.email}`
   );
 }
+
+// Example 13: Nullish Coalescing
+function runExample13() {
+  let usernameInput = null;
+  let emptyString = "";
+
+  updateOutput(
+    "output13",
+    `Username: ${usernameInput ?? "DefaultUser"}\nEmpty string: ${
+      emptyString ?? "DefaultString"
+    }`
+  );
+}
+
+// Example 14: for...of Loop
+function runExample14() {
+  const scores = [90, 80, 100];
+  let output = "";
+  for (let score of scores) {
+    output += score + " ";
+  }
+  updateOutput("output14", output);
+}
+
+// Example 15: Map and Set
+function runExample15() {
+  const map = new Map();
+  map.set("a", 1);
+  map.set("b", 2);
+
+  const set = new Set([1, 2, 2, 3]);
+
+  updateOutput(
+    "output15",
+    `Map: ${JSON.stringify([...map])}\nSet: ${JSON.stringify([...set])}`
+  );
+}
+
+// Example 16: Array Methods
+function runExample16() {
+  const arr = [1, 2, 3, 4, 5];
+  updateOutput(
+    "output16",
+    `Includes 2: ${arr.includes(2)}\nFind > 3: ${arr.find(
+      (n) => n > 3
+    )}\nFindIndex of 3: ${arr.findIndex((n) => n === 3)}`
+  );
+}
+
+// Example 17: Object Methods
+function runExample17() {
+  const info = { a: 1, b: 2 };
+  updateOutput(
+    "output17",
+    `Entries: ${JSON.stringify(Object.entries(info))}\nValues: ${JSON.stringify(
+      Object.values(info)
+    )}\nFromEntries: ${JSON.stringify(
+      Object.fromEntries([
+        ["x", 10],
+        ["y", 20],
+      ])
+    )}`
+  );
+}
+
+// Example 18: Logical Assignment
+function runExample18() {
+  let userName = null;
+  userName ||= "Guest";
+
+  let count = 10;
+  count &&= 20;
+
+  updateOutput("output18", `Username: ${userName}\nCount: ${count}`);
+}
+
+// Example 19: Private Class Fields
+function runExample19() {
+  class Secret {
+    #code = 123;
+    getCode() {
+      return this.#code;
+    }
+  }
+  const s = new Secret();
+  updateOutput("output19", `Secret code: ${s.getCode()}`);
+}
